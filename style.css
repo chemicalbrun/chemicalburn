@@ -1,179 +1,218 @@
 :root{
-    --bg:#24171f;
-    --window:#ffeaf3;
-    --title:#ff9ec9;
-    --title2:#ffc3dd;
-    --border:#7f4b65;
-    --paper:#fff8fb;
-    --text:#432637;
-    --shadow:rgba(0,0,0,.28);
+    --bg:#ffdceb;
+    --bg2:#fff3f8;
+
+    --window:#ffeef6;
+
+    --title1:#ffc6df;
+    --title2:#ff95c4;
+
+    --border:#e96ca7;
+    --border-dark:#b84c81;
+
+    --text:#6b2145;
+
+    --shadow:rgba(219,78,143,.22);
+
+    --task:#ffacd0;
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+
+scroll-behavior:smooth;
+
 }
 
 body{
-    font-family:Tahoma,sans-serif;
-    background:#111;
-    color:var(--text);
-    overflow:hidden;
-}
 
-/* ---------------- Boot ---------------- */
-
-#boot-screen{
-    position:fixed;
-    inset:0;
-    background:#000;
-    color:#fff;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    font-family:'VT323',monospace;
-    z-index:9999;
-}
-
-#boot-screen h1{
-    font-size:70px;
-    font-weight:normal;
-    letter-spacing:3px;
-}
-
-#boot-screen p{
-    font-size:32px;
-    margin-top:12px;
-}
-
-.cursor{
-    animation:blink .8s infinite;
-}
-
-@keyframes blink{
-
-50%{
-opacity:0;
-}
-
-}
-
-/* ---------------- Desktop ---------------- */
-
-#desktop{
-
-display:none;
-
-width:100vw;
-height:100vh;
-
-background:linear-gradient(
+background:
+linear-gradient(
 180deg,
-#ffd8eb 0%,
-#ffeaf5 50%,
-#fff8fc 100%
+var(--bg),
+var(--bg2)
 );
 
-position:relative;
+font-family:"VT323",monospace;
 
-overflow:hidden;
+font-size:28px;
+
+color:var(--text);
+
+overflow-x:hidden;
+
+min-height:100vh;
 
 }
 
-/* placeholder room */
+/* VHS */
 
-#room{
+#vhs{
 
-position:absolute;
+position:fixed;
 
 inset:0;
 
-background-image:
+pointer-events:none;
 
-radial-gradient(circle at 50% 20%,rgba(255,255,255,.45),transparent 40%),
+opacity:.24;
 
-linear-gradient(#ffdcea,#fff5fb);
+background:
+
+repeating-linear-gradient(
+
+0deg,
+
+transparent 0px,
+
+rgba(255,255,255,.18) 2px,
+
+transparent 4px
+
+);
+
+animation:vhs 8s infinite;
+
+z-index:999;
 
 }
 
-/* ---------------- Windows ---------------- */
+@keyframes vhs{
+
+0%{
+
+opacity:.18;
+
+transform:translateY(0);
+
+}
+
+50%{
+
+opacity:.30;
+
+transform:translateY(1px);
+
+}
+
+100%{
+
+opacity:.18;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Desktop */
+
+.container{
+
+width:min(1500px,95%);
+
+margin:25px auto;
+
+display:grid;
+
+grid-template-columns:
+
+320px
+
+1fr;
+
+gap:22px;
+
+align-items:start;
+
+}
+
+/* Left */
+
+.sidebar{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+/* Right */
+
+.content{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+/* 2 column windows */
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+
+1fr
+
+1fr;
+
+gap:18px;
+
+}
+
+/* Bottom */
+
+.bottom-row{
+
+display:grid;
+
+grid-template-columns:
+
+1fr
+
+1fr;
+
+gap:18px;
+
+}
+
+/* WINDOWS */
 
 .window{
 
-position:absolute;
-
-width:320px;
-
 background:var(--window);
 
-border:2px solid var(--border);
+border:
 
-border-radius:14px;
+2px solid var(--border);
+
+border-radius:6px;
 
 overflow:hidden;
 
 box-shadow:
-0 15px 35px var(--shadow),
-0 0 30px rgba(255,170,210,.15);
 
-opacity:0;
-
-transform:translateY(20px);
+0 5px 14px var(--shadow);
 
 }
 
-/* positions */
-
-#welcome{
-
-top:50px;
-left:60px;
-
-}
-
-.window:nth-of-type(2){
-
-top:90px;
-right:60px;
-
-}
-
-.window:nth-of-type(3){
-
-top:290px;
-left:80px;
-
-}
-
-.window:nth-of-type(4){
-
-top:310px;
-right:90px;
-
-}
-
-.window:nth-of-type(5){
-
-bottom:90px;
-left:50%;
-transform:translateX(-50%);
-
-}
-
-.window:nth-of-type(6){
-
-bottom:90px;
-right:70px;
-
-}
-
-/* title */
+/* XP titlebar */
 
 .titlebar{
 
-height:36px;
+height:38px;
 
 display:flex;
 
@@ -181,24 +220,35 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:0 12px;
+padding:0 10px;
+
+font-size:25px;
 
 font-weight:bold;
 
 background:
+
 linear-gradient(
+
 180deg,
-var(--title2),
-var(--title)
+
+var(--title1),
+
+var(--title2)
+
 );
 
-border-bottom:2px solid var(--border);
+border-bottom:
+
+2px solid var(--border-dark);
+
+position:relative;
 
 }
 
-/* glossy shine */
+/* glossy top */
 
-.titlebar::after{
+.titlebar::before{
 
 content:"";
 
@@ -210,11 +260,11 @@ top:0;
 
 width:100%;
 
-height:50%;
+height:45%;
 
-background:rgba(255,255,255,.25);
+background:
 
-pointer-events:none;
+rgba(255,255,255,.28);
 
 }
 
@@ -224,21 +274,25 @@ pointer-events:none;
 
 display:flex;
 
-gap:6px;
+gap:4px;
+
+z-index:2;
 
 }
 
 .window-buttons span{
 
-width:14px;
+width:17px;
 
-height:14px;
+height:17px;
 
-border-radius:4px;
+background:#ffeaf4;
 
-background:#ffdff0;
+border:
 
-border:1px solid var(--border);
+2px solid var(--border-dark);
+
+cursor:pointer;
 
 transition:.2s;
 
@@ -246,9 +300,9 @@ transition:.2s;
 
 .window-buttons span:hover{
 
-background:#fff;
+background:white;
 
-transform:scale(1.1);
+transform:translateY(-1px);
 
 }
 
@@ -256,45 +310,93 @@ transform:scale(1.1);
 
 .window-content{
 
-padding:14px;
+padding:15px;
 
-background:var(--paper);
+background:
 
-margin:12px;
+linear-gradient(
 
-border-radius:10px;
+180deg,
 
-border:2px inset #fff;
+#fff,
 
-min-height:120px;
+#fff8fc
+
+);
+
+min-height:150px;
 
 }
 
-/* status */
+/* links */
 
-.window-content::after{
+a{
 
-content:"♡ Welcome";
+color:#c5397f;
+
+text-decoration:none;
+
+}
+
+a:hover{
+
+text-decoration:underline;
+
+}
+
+/* profile */
+
+.profile{
+
+text-align:center;
+
+}
+
+.avatar{
+
+width:180px;
+
+border:
+
+4px solid white;
+
+outline:
+
+2px solid var(--border);
+
+margin-bottom:18px;
+
+box-shadow:
+
+0 0 15px rgba(255,255,255,.5);
+
+}
+
+/* record */
+
+.record{
+
+width:170px;
 
 display:block;
 
-margin-top:16px;
+margin:auto;
 
-padding-top:10px;
-
-border-top:1px solid #e9bfd4;
-
-font-size:12px;
-
-color:#8a5871;
+transition:.5s;
 
 }
 
-/* ---------------- Taskbar ---------------- */
+.record:hover{
+
+transform:rotate(360deg);
+
+}
+
+/* taskbar */
 
 footer{
 
-position:absolute;
+position:fixed;
 
 bottom:0;
 
@@ -302,27 +404,446 @@ left:0;
 
 width:100%;
 
-height:44px;
+height:42px;
 
-background:linear-gradient(#ffb4d5,#ff91c2);
+background:
 
-border-top:2px solid var(--border);
+linear-gradient(
+
+var(--title1),
+
+var(--title2)
+
+);
+
+border-top:
+
+2px solid var(--border-dark);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:0 18px;
+
+z-index:1000;
+
+}
+
+/* mobile */
+
+@media(max-width:900px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.bottom-row{
+
+grid-template-columns:1fr;
+
+}
+
+body{
+
+font-size:24px;
+
+}
+
+}
+
+/* ---------- WINDOW CONTENT ---------- */
+
+.window-content{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.window-content p{
+    line-height:1.4;
+}
+
+.window-content button{
+    background:linear-gradient(#ffe9f3,#ffc6df);
+    border:2px solid var(--border-dark);
+    color:var(--text);
+    font-family:"VT323",monospace;
+    font-size:24px;
+    padding:8px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.window-content button:hover{
+    transform:translateY(-2px);
+    background:linear-gradient(#fff,#ffd6e9);
+}
+
+/* ---------- MUSIC ---------- */
+
+.record{
+    animation:spin 5s linear infinite;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* ---------- GALLERY ---------- */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+}
+
+.gallery-grid img{
+    width:100%;
+    aspect-ratio:1;
+    object-fit:cover;
+    border:2px solid var(--border);
+    transition:.2s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.05);
+}
+
+/* ---------- GUESTBOOK ---------- */
+
+.guest-entry{
+    background:#fff;
+    border:2px solid #ffd3e6;
+    padding:10px;
+    border-radius:4px;
+}
+
+.guest-name{
+    color:#d14687;
+    font-weight:bold;
+}
+
+/* ---------- DIARY ---------- */
+
+.diary-entry{
+    background:#fff;
+    border-left:4px solid #ff8fc1;
+    padding:10px;
+}
+
+/* ---------- TV ---------- */
+
+.tv-screen{
+    width:100%;
+    aspect-ratio:16/9;
+    background:black;
+    border:6px solid #444;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+}
+
+.tv-screen iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+
+/* ---------- ARCADE ---------- */
+
+.arcade-list{
+    display:grid;
+    gap:8px;
+}
+
+.arcade-list button{
+    text-align:left;
+}
+
+/* ---------- Cute scrollbar ---------- */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#ffe8f2;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ff9bc7;
+    border-radius:20px;
+}
+/* =========================================
+   PART 3 — XP POLISH
+=========================================*/
+
+/* Glass shine on every window */
+
+.window{
+    position:relative;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.18),
+        inset 0 1px rgba(255,255,255,.9),
+        inset 0 -1px rgba(255,170,205,.4);
+}
+
+/* Slight inner border */
+
+.window::after{
+    content:"";
+    position:absolute;
+    inset:2px;
+    border:1px solid rgba(255,255,255,.45);
+    pointer-events:none;
+}
+
+/* Better XP title bar */
+
+.titlebar{
+
+    background:
+    linear-gradient(
+        to bottom,
+        #ffe6f3 0%,
+        #ffb8d8 40%,
+        #ff91c3 100%
+    );
+
+    color:#6f2047;
+
+    text-shadow:
+    1px 1px white;
+
+    letter-spacing:.5px;
+
+}
+
+/* Little glossy highlight */
+
+.titlebar::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:100%;
+height:50%;
+
+background:
+
+linear-gradient(
+
+rgba(255,255,255,.55),
+
+rgba(255,255,255,0)
+
+);
+
+}
+
+/* XP buttons */
+
+.window-buttons span{
+
+background:
+
+linear-gradient(
+
+#fff,
+
+#ffd5e8
+
+);
+
+border:1px solid #b85783;
+
+box-shadow:
+
+inset 1px 1px rgba(255,255,255,.9);
+
+}
+
+.window-buttons span:hover{
+
+background:
+
+linear-gradient(
+
+#ffffff,
+
+#fff1f7
+
+);
+
+}
+
+/* Window body */
+
+.window-content{
+
+box-shadow:
+
+inset 0 0 0 1px white,
+
+inset 0 0 8px rgba(255,190,220,.3);
+
+}
+
+/* Cute links */
+
+a{
+
+transition:.2s;
+
+}
+
+a:hover{
+
+color:#ff4f9e;
+
+}
+
+/* Pixel-ish divider */
+
+hr{
+
+border:none;
+
+height:2px;
+
+background:
+
+repeating-linear-gradient(
+
+90deg,
+
+#ffb8d8 0 8px,
+
+#ffddeb 8px 16px
+
+);
+
+}
+
+/* Title icon */
+
+.window-title{
 
 display:flex;
 
 align-items:center;
 
-justify-content:space-between;
-
-padding:0 15px;
-
-font-weight:bold;
+gap:8px;
 
 }
 
-/* ---------------- VHS ---------------- */
+/* Tiny pixel square */
+
+.window-title::before{
+
+content:"";
+
+width:12px;
+
+height:12px;
+
+background:#ff7fb6;
+
+border:
+
+1px solid #fff;
+
+outline:
+
+1px solid #b85783;
+
+}
+
+/* Hover */
+
+.window:hover{
+
+transform:translateY(-2px);
+
+transition:.2s;
+
+}
+
+/* Cute selection */
+
+::selection{
+
+background:#ffabd1;
+
+color:white;
+
+}
+
+/* Better taskbar */
+
+footer{
+
+box-shadow:
+
+0 -2px 10px rgba(0,0,0,.2);
+
+}
+
+/* Soft CRT glow */
+
+#desktop{
+
+filter:
+
+drop-shadow(0 0 6px rgba(255,185,220,.25));
+
+}
+
+/* Stronger VHS scanlines */
 
 #vhs{
+
+background:
+
+repeating-linear-gradient(
+
+transparent 0px,
+
+rgba(255,255,255,.05) 2px,
+
+transparent 4px
+
+);
+
+mix-blend-mode:overlay;
+
+}
+
+/* Tiny flicker */
+
+body::after{
+
+content:"";
 
 position:fixed;
 
@@ -330,75 +851,31 @@ inset:0;
 
 pointer-events:none;
 
-background:
-repeating-linear-gradient(
-transparent 0px,
-rgba(255,255,255,.03) 2px,
-transparent 4px
-);
+background:white;
 
-opacity:.45;
+opacity:0;
 
-animation:flicker 8s infinite;
+animation:flicker 9s infinite;
 
 }
 
 @keyframes flicker{
 
-0%,100%{
+0%,97%,100%{
 
-opacity:.45;
-
-}
-
-50%{
-
-opacity:.25;
+opacity:0;
 
 }
 
-}
+98%{
 
-/* ---------------- Mobile ---------------- */
-
-@media(max-width:900px){
-
-body{
-
-overflow:auto;
+opacity:.05;
 
 }
 
-#desktop{
+99%{
 
-overflow:auto;
-
-padding-bottom:80px;
-
-}
-
-.window{
-
-position:relative;
-
-width:92%;
-
-left:auto!important;
-right:auto!important;
-top:auto!important;
-bottom:auto!important;
-
-margin:20px auto;
-
-transform:none!important;
-
-opacity:1;
-
-}
-
-footer{
-
-position:fixed;
+opacity:.02;
 
 }
 
