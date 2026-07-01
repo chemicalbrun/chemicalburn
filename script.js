@@ -1,53 +1,52 @@
-// ========================================
-// CHEMICALBURN V3
-// script.js
-// ========================================
-
-// ---------- INTRO ----------
-
 const intro = document.getElementById("intro");
-const enterButton = document.getElementById("enter-site");
+const enter = document.getElementById("enter-site");
 const desktop = document.getElementById("desktop");
+const clock = document.getElementById("clock");
 
-desktop.style.opacity = "0";
+desktop.classList.remove("loaded");
 
-function enterDesktop() {
+function enterSite(){
 
     intro.style.opacity = "0";
-    intro.style.pointerEvents = "none";
 
-    desktop.style.transition = "opacity 1.2s ease";
-    desktop.style.opacity = "1";
-
-    setTimeout(() => {
+    setTimeout(()=>{
 
         intro.remove();
 
-    }, 1200);
+        desktop.classList.add("loaded");
+
+    },900);
 
 }
 
-enterButton.addEventListener("click", enterDesktop);
+enter.addEventListener("click",enterSite);
 
-// ---------- TASKBAR CLOCK ----------
-
-const clock = document.getElementById("clock");
-
-function updateClock() {
+function updateClock(){
 
     const now = new Date();
 
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-
-    hours = String(hours).padStart(2, "0");
-    minutes = String(minutes).padStart(2, "0");
-
-    clock.textContent = `${hours}:${minutes}`;
+    clock.textContent =
+        now.toLocaleTimeString([],{
+            hour:"2-digit",
+            minute:"2-digit"
+        });
 
 }
 
 updateClock();
 
-setInterval(updateClock, 1000);
+setInterval(updateClock,1000);
 
+/* Random VHS glitch */
+
+setInterval(()=>{
+
+    document.body.classList.add("glitch");
+
+    setTimeout(()=>{
+
+        document.body.classList.remove("glitch");
+
+    },180);
+
+},18000 + Math.random()*12000);
