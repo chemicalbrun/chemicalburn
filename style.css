@@ -1793,3 +1793,17 @@ button:active{
 
 }
 
+
+body.glitch{
+
+    transform:translateX(1px);
+
+    filter:
+
+    brightness(.95)
+
+    contrast(1.04)
+
+    saturate(.95);
+
+}
