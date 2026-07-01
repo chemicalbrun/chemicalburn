@@ -10,48 +10,26 @@
 
     <title>chemicalburn.exe</title>
 
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
     <link rel="preconnect"
           href="https://fonts.gstatic.com"
           crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Pixelify+Sans:wght@400;700&display=swap"
           rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
 <body>
 
-<!-- ===========================
-     PS2 INTRO
-============================ -->
-
-<div id="intro">
-
-    <div class="intro-noise"></div>
-
-    <div class="intro-logo">
-
-        <h1>chemicalburn.exe</h1>
-
-        <p>loading personal system...</p>
-
-        <button id="enter-site">
-
-            ENTER
-
-        </button>
-
-    </div>
-
-</div>
-
-<!-- ===========================
-     CRT / VHS
-============================ -->
+<!-- =====================================================
+CRT LAYERS
+====================================================== -->
 
 <div id="crt">
 
@@ -61,345 +39,785 @@
 
     <div class="crt-rgb"></div>
 
-    <div class="crt-distortion"></div>
+    <div class="crt-tracking"></div>
 
 </div>
 
-<!-- ===========================
-     SIDE BORDERS
-============================ -->
+<!-- =====================================================
+PS2 INTRO
+====================================================== -->
 
-<div class="side-border left">
+<section id="intro">
 
-    <div class="border-art"></div>
+    <div class="intro-background"></div>
 
-</div>
+    <div class="intro-content">
 
-<div class="side-border right">
+        <h1>
 
-    <div class="border-art"></div>
+            chemicalburn.exe
 
-</div>
-
-<!-- ===========================
-     DESKTOP
-============================ -->
-
-<div id="desktop">
-
-<header class="banner window">
-
-    <div class="titlebar">
-
-        <span>chemicalburn.exe</span>
-
-        <div class="buttons">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </div>
-
-    </div>
-
-    <div class="window-content">
-
-        <h1>chemicalburn.exe</h1>
+        </h1>
 
         <p>
 
-            ♡ welcome to my little corner of the internet ♡
+            Personal Desktop Environment
 
         </p>
 
+        <div class="boot-box">
+
+            <div class="boot-text">
+
+                Initializing System...
+
+            </div>
+
+            <div class="loading-bar">
+
+                <div class="loading-fill"></div>
+
+            </div>
+
+        </div>
+
+        <button id="enter-site">
+
+            ENTER
+
+        </button>
+
     </div>
+
+</section>
+
+<!-- =====================================================
+DESKTOP
+====================================================== -->
+
+<main id="desktop">
+
+<!-- =====================================================
+HEADER
+====================================================== -->
+
+<header id="desktop-header">
+
+    <div class="title-stars">
+
+        ✦ ✦ ✦
+
+    </div>
+
+    <h1>
+
+        ChemicalBurn.exe
+
+    </h1>
+
+    <p>
+
+        ♡ welcome to my little corner of the internet ♡
+
+    </p>
 
 </header>
 
-<div class="layout">
+<!-- =====================================================
+MAIN GRID
+====================================================== -->
 
-<!-- LEFT -->
+<section id="desktop-grid">
 
-<aside class="left-column">
+    <!-- =====================================================
+LEFT SIDEBAR
+====================================================== -->
 
-<div class="window profile">
+<aside id="sidebar">
 
-<div class="titlebar">
+    <!-- ==========================
+         PROFILE
+    =========================== -->
 
-<span>Profile</span>
+    <section class="window">
 
-<div class="buttons">
+        <div class="titlebar">
 
-<span></span>
-<span></span>
-<span></span>
+            <span>👤 Profile</span>
 
-</div>
+            <div class="window-buttons">
 
-</div>
+                <span></span>
+                <span></span>
+                <span></span>
 
-<div class="window-content">
+            </div>
 
-<img
-src="images/avatar.png"
-class="avatar">
-
-<h2>chemicalburn</h2>
-
-<p>artist</p>
-
-<p>always listening to music</p>
-
-<p>currently online ♡</p>
-
-</div>
-
-</div>
-
-<div class="window">
-
-<div class="titlebar">
-
-<span>About Me</span>
-
-<div class="buttons">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-</div>
-
-<div class="window-content">
-
-<p>
-
-hi! i'm chemicalburn.
-
-</p>
-
-<p>
-
-i love drawing,
-
-old websites,
-
-music,
-
-horror games,
-
-CDs,
-
-and anything nostalgic.
-
-</p>
-
-<p>
-
-every piece of artwork
-
-here will eventually
-
-be drawn by me.
-
-</p>
-
-</div>
-
-</div>
-
-<div class="window">
-
-<div class="titlebar">
-
-<span>Interests</span>
-
-<div class="buttons">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-</div>
-
-<div class="window-content">
-
-<ul>
-
-<li>♡ Drawing</li>
-
-<li>♡ Music</li>
-
-<li>♡ Movies</li>
-
-<li>♡ CD Collecting</li>
-
-<li>♡ Old Internet</li>
-
-<li>♡ Cats</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</aside>
-
-<!-- CENTER -->
-
-<main class="middle-column">
-
-    <!-- Welcome -->
-
-<div class="window welcome">
-
-    <div class="titlebar">
-
-        <span>🏠 Welcome</span>
-
-        <div class="buttons">
-            <span></span>
-            <span></span>
-            <span></span>
         </div>
 
-    </div>
+        <div class="window-content profile-content">
 
-    <div class="window-content welcome-content">
+            <img
+                src="images/profile.png"
+                alt="Profile Picture"
+                class="profile-image">
 
-        <div class="welcome-text">
+            <h2>
 
-            <h2>♡ welcome to chemicalburn ♡</h2>
+                ChemicalBurn
+
+            </h2>
+
+            <p class="status">
+
+                🟢 Online
+
+            </p>
 
             <p>
-                a handmade website inspired by
-                old computers,
-                VHS tapes,
-                PS2 aesthetics,
-                and late-night internet.
+
+                Artist • Collector • Gamer
+
             </p>
 
         </div>
 
-        <img
-            src="images/computer.png"
-            class="welcome-art"
-            alt="computer">
+    </section>
 
-    </div>
+    <!-- ==========================
+         ABOUT ME
+    =========================== -->
+
+    <section class="window">
+
+        <div class="titlebar">
+
+            <span>💖 About Me</span>
+
+            <div class="window-buttons">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <div class="window-content">
+
+            <p>
+
+                Welcome to my little desktop.
+
+            </p>
+
+            <br>
+
+            <p>
+
+                I love drawing, old internet,
+                PS2 games, CDs, horror,
+                collecting cute things,
+                and making nostalgic websites.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+         MOOD
+    =========================== -->
+
+    <section class="window">
+
+        <div class="titlebar">
+
+            <span>🌸 Mood of the Day</span>
+
+            <div class="window-buttons">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <div class="window-content">
+
+            <p>
+
+                Listening to music...
+
+            </p>
+
+            <br>
+
+            <p>
+
+                Feeling:
+                ✨ Cozy ✨
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+         INTERESTS
+    =========================== -->
+
+    <section class="window">
+
+        <div class="titlebar">
+
+            <span>⭐ Interests</span>
+
+            <div class="window-buttons">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <div class="window-content">
+
+            <ul class="interest-list">
+
+                <li>🎨 Drawing</li>
+                <li>💿 CDs</li>
+                <li>🎮 PS2</li>
+                <li>📼 VHS</li>
+                <li>📷 Photography</li>
+                <li>🎵 Music</li>
+                <li>🐈 Cats</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+</aside>
+
+<!-- =====================================================
+RIGHT SIDE
+====================================================== -->
+
+<section id="content">
+
+    <!-- =====================================================
+TOP ROW
+====================================================== -->
+
+<div class="top-row">
+
+    <!-- ==========================
+         MUSIC PLAYER
+    =========================== -->
+
+    <section class="window music-window">
+
+        <div class="titlebar">
+
+            <span>💿 Music Player</span>
+
+            <div class="window-buttons">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <div class="window-content music-content">
+
+            <div class="cd-player">
+
+                <div class="cd">
+
+                    <div class="cd-center"></div>
+
+                </div>
+
+                <div class="player-info">
+
+                    <h2>
+
+                        ChemicalBurn Mix
+
+                    </h2>
+
+                    <p id="now-playing">
+
+                        No song loaded
+
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div class="progress"></div>
+
+                    </div>
+
+                    <div class="player-buttons">
+
+                        <button id="previous-song">
+
+                            ⏮
+
+                        </button>
+
+                        <button id="play-song">
+
+                            ▶
+
+                        </button>
+
+                        <button id="pause-song">
+
+                            ⏸
+
+                        </button>
+
+                        <button id="next-song">
+
+                            ⏭
+
+                        </button>
+
+                    </div>
+
+                    <input
+                        id="volume-slider"
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="70">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+         DIARY
+    =========================== -->
+
+    <section class="window diary-window">
+
+        <div class="titlebar">
+
+            <span>📔 Diary</span>
+
+            <div class="window-buttons">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <div class="window-content">
+
+            <img
+                src="icons/notebook.png"
+                class="notebook-icon"
+                alt="Notebook">
+
+            <h3>
+
+                Latest Entry
+
+            </h3>
+
+            <p>
+
+                Click the notebook
+                to read my diary.
+
+            </p>
+
+            <button
+                id="open-diary">
+
+                Open Diary
+
+            </button>
+
+        </div>
+
+    </section>
 
 </div>
 
-<!-- Diary -->
+<!-- ==========================
+     GALLERY
+========================== -->
 
-<div class="window diary">
+<section class="window gallery-window">
 
     <div class="titlebar">
 
-        <span>📝 Diary</span>
+        <span>🖼 Gallery</span>
 
-        <div class="buttons">
+        <div class="window-buttons">
+
             <span></span>
             <span></span>
             <span></span>
+
         </div>
 
     </div>
 
     <div class="window-content">
 
-        <h3>July 2025</h3>
+        <div class="gallery-preview">
 
-        <p>
-            Finally started rebuilding this website...
-        </p>
-
-        <hr>
-
-        <h3>Today</h3>
-
-        <p>
-            Working on making
-            chemicalburn feel like
-            an old forgotten console.
-        </p>
-
-    </div>
-
-</div>
-
-<!-- Gallery -->
-
-<div class="window gallery">
-
-    <div class="titlebar">
-
-        <span>📷 Gallery</span>
-
-        <div class="buttons">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-    </div>
-
-    <div class="window-content">
-
-        <div class="gallery-grid">
-
-            <img src="images/1.jpg">
-            <img src="images/2.jpg">
-            <img src="images/3.jpg">
-            <img src="images/4.jpg">
-            <img src="images/5.jpg">
-            <img src="images/6.jpg">
+            <img src="images/gallery1.png" alt="">
+            <img src="images/gallery2.png" alt="">
+            <img src="images/gallery3.png" alt="">
+            <img src="images/gallery4.png" alt="">
+            <img src="images/gallery5.png" alt="">
+            <img src="images/gallery6.png" alt="">
 
         </div>
 
+        <button id="view-gallery">
+
+            View More →
+
+        </button>
+
     </div>
+
+</section>
+
+    <!-- =====================================================
+BOTTOM ROW
+====================================================== -->
+
+<div class="bottom-row">
+
+    <!-- ==========================
+         CRT TV
+    =========================== -->
+
+    <section class="window tv-window">
+
+        <div class="titlebar">
+
+            <span>📺 CRT Television</span>
+
+            <div class="window-buttons">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <div class="window-content">
+
+            <div class="crt-frame">
+
+                <iframe
+                    id="tv-player"
+                    src="https://www.youtube.com/embed/videoseries?list=PLn5LUXfb-2H-s96MdbO-ckELdQ-tmDy9K"
+                    title="TV Playlist"
+                    allowfullscreen>
+                </iframe>
+
+            </div>
+
+            <div class="tv-controls">
+
+                <button id="tv-power">
+
+                    ⏻
+
+                </button>
+
+                <button id="tv-channel-down">
+
+                    ◀ CH
+
+                </button>
+
+                <button id="tv-channel-up">
+
+                    CH ▶
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+         ARCADE
+    =========================== -->
+
+    <section class="window arcade-window">
+
+        <div class="titlebar">
+
+            <span>🎮 Arcade</span>
+
+            <div class="window-buttons">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
+        <div class="window-content">
+
+            <button class="game-button">
+
+                🐍 Snake
+
+            </button>
+
+            <button class="game-button">
+
+                💿 DVD Bounce
+
+            </button>
+
+            <button class="game-button">
+
+                🧠 Memory
+
+            </button>
+
+            <button class="game-button">
+
+                🕹 Pong
+
+            </button>
+
+        </div>
+
+    </section>
 
 </div>
 
-<!-- Guestbook -->
+<!-- ==========================
+     GUESTBOOK
+========================== -->
 
-<div class="window guestbook">
+<section class="window guestbook-window">
 
     <div class="titlebar">
 
         <span>💌 Guestbook</span>
 
-        <div class="buttons">
+        <div class="window-buttons">
+
             <span></span>
             <span></span>
             <span></span>
+
         </div>
 
     </div>
 
     <div class="window-content">
 
-        <div class="comment">
+        <div id="guestbook-posts">
 
-            <b>PixelKitty</b>
+            <p>
 
-            <p>love the vibes already ♡</p>
+                No messages yet...
+
+            </p>
 
         </div>
 
-        <hr>
+        <input
+            id="guest-name"
+            type="text"
+            placeholder="Your name">
 
-        <div class="comment">
+    
+        <textarea
+            id="guest-message"
+            placeholder="Leave a message..."></textarea>
 
-            <b>sleepycat</b>
+        <button id="guest-submit">
 
-            <p>can't wait to see your artwork!!</p>
+            Sign Guestbook
+
+        </button>
+
+    </div>
+
+</section>
+
+</section>
+
+    <!-- =====================================================
+DESKTOP PET
+====================================================== -->
+
+<div id="desktop-cat">
+
+    <img
+        src="images/cat.png"
+        alt="Desktop Cat"
+        id="cat-image">
+
+    <div id="cat-speech">
+
+        meow!
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+FLOATING DECORATIONS
+====================================================== -->
+
+<div id="decorations">
+
+    <div id="sparkles"></div>
+
+    <div id="hearts"></div>
+
+    <div id="stars"></div>
+
+</div>
+
+<!-- =====================================================
+WINDOWS XP TASKBAR
+====================================================== -->
+
+<footer id="taskbar">
+
+    <button id="start-button">
+
+        ♡ Start
+
+    </button>
+
+    <div id="task-icons">
+
+        <button class="task-icon">
+
+            💿
+
+        </button>
+
+        <button class="task-icon">
+
+            📺
+
+        </button>
+
+        <button class="task-icon">
+
+            📖
+
+        </button>
+
+        <button class="task-icon">
+
+            🖼
+
+        </button>
+
+        <button class="task-icon">
+
+            🎮
+
+        </button>
+
+        <button class="task-icon">
+
+            💌
+
+        </button>
+
+    </div>
+
+    <div id="system-tray">
+
+        <span>
+
+            🔊
+
+        </span>
+
+        <span>
+
+            📶
+
+        </span>
+
+        <span id="clock">
+
+            12:00 AM
+
+        </span>
+
+    </div>
+
+</footer>
+    
+<!-- =====================================================
+HIDDEN WINDOWS
+====================================================== -->
+
+<!-- Full Diary -->
+
+<div id="diary-modal" class="modal hidden">
+
+    <div class="window large-window">
+
+        <div class="titlebar">
+
+            <span>📔 My Diary</span>
+
+            <div class="window-buttons">
+
+                <span class="close-window">✕</span>
+
+            </div>
+
+        </div>
+
+        <div class="window-content">
+
+            <div id="diary-entries">
+
+                <!-- Filled by JavaScript -->
+
+            </div>
 
         </div>
 
@@ -407,159 +825,107 @@ be drawn by me.
 
 </div>
 
-<!-- Bottom -->
+<!-- Full Gallery -->
 
-<div class="bottom-row">
+<div id="gallery-modal" class="modal hidden">
 
-<!-- Music -->
+    <div class="window large-window">
 
-<div class="window music">
+        <div class="titlebar">
 
-<div class="titlebar">
+            <span>🖼 Gallery</span>
 
-<span>🎵 Music</span>
+            <div class="window-buttons">
 
-<div class="buttons">
+                <span class="close-window">✕</span>
 
-<span></span>
-<span></span>
-<span></span>
+            </div>
 
-</div>
+        </div>
 
-</div>
+        <div class="window-content">
 
-<div class="window-content">
+            <div id="gallery-grid">
 
-<img
-src="images/record.png"
-class="record"
-alt="record">
+                <!-- Images generated later -->
 
-<p>
+            </div>
 
-click the record
+        </div>
 
-to open Spotify ♡
-
-</p>
+    </div>
 
 </div>
 
-</div>
+<!-- Game Window -->
 
-<!-- Arcade -->
+<div id="game-modal" class="modal hidden">
 
-<div class="window arcade">
+    <div class="window large-window">
 
-<div class="titlebar">
+        <div class="titlebar">
 
-<span>🎮 Arcade</span>
+            <span>🎮 Arcade</span>
 
-<div class="buttons">
+            <div class="window-buttons">
 
-<span></span>
-<span></span>
-<span></span>
+                <span class="close-window">✕</span>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-<div class="window-content">
+        <div
+            class="window-content"
+            id="game-container">
 
-<button>Snake</button>
+        </div>
 
-<button>Pong</button>
-
-<button>Tetris</button>
+    </div>
 
 </div>
 
-</div>
+<!-- =====================================================
+AUDIO
+====================================================== -->
 
-<!-- CRT TV -->
+<audio id="music-player"></audio>
 
-<div class="window tv">
+<audio id="cat-meow">
 
-<div class="titlebar">
+    <source
+        src="sounds/meow.mp3"
+        type="audio/mpeg">
 
-<span>📺 CRT TV</span>
+</audio>
 
-<div class="buttons">
+<audio id="startup-sound">
 
-<span></span>
-<span></span>
-<span></span>
+    <source
+        src="sounds/startup.mp3"
+        type="audio/mpeg">
 
-</div>
+</audio>
 
-</div>
+<audio id="shutdown-sound">
 
-<div class="window-content">
+    <source
+        src="sounds/shutdown.mp3"
+        type="audio/mpeg">
 
-<div class="tv-screen">
+</audio>
 
-<video
-autoplay
-muted
-loop
-playsinline>
-
-<source
-src="media/tv.mp4"
-type="video/mp4">
-
-</video>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</main>
-
-</div>
-
-<footer>
-
-<button class="start">
-
-♡ Start
-
-</button>
-
-<div class="task-icons">
-
-<span>🖥</span>
-
-<span>⭐</span>
-
-<span>📁</span>
-
-<span>🎵</span>
-
-<span>🎮</span>
-
-<span>✉️</span>
-
-</div>
-
-<div class="clock">
-
-13:37
-
-</div>
-
-</footer>
-
-</div>
+<!-- =====================================================
+SCRIPT
+====================================================== -->
 
 <script src="script.js"></script>
 
+</main>
+
 </body>
+
 </html>
+    
+
     
