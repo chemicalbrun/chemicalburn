@@ -1807,3 +1807,157 @@ body.glitch{
     saturate(.95);
 
 }
+
+
+/* ==========================================
+   CRT / VHS OVERLAY
+========================================== */
+
+#crt{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:99999;
+    overflow:hidden;
+}
+
+/* Visible scanlines */
+
+.scanlines{
+    position:absolute;
+    inset:0;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.09) 0px,
+            rgba(255,255,255,.09) 1px,
+            transparent 2px,
+            transparent 4px
+        );
+
+    opacity:.45;
+    animation:scanlines 6s linear infinite;
+}
+
+/* Grain */
+
+.noise{
+    position:absolute;
+    inset:-100%;
+    opacity:.08;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size:5px 5px;
+
+    mix-blend-mode:overlay;
+
+    animation:noise .18s steps(2) infinite;
+}
+
+/* Dark edges */
+
+.vignette{
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            ellipse,
+            transparent 52%,
+            rgba(0,0,0,.35)
+        );
+}
+
+/* Slight RGB */
+
+.rgb{
+
+    position:absolute;
+
+    inset:0;
+
+    box-shadow:
+        inset 2px 0 rgba(255,0,120,.08),
+        inset -2px 0 rgba(0,180,255,.08);
+
+}
+
+/* VHS tracking */
+
+.tracking{
+
+    position:absolute;
+
+    left:-15%;
+    width:130%;
+    height:70px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
+    opacity:0;
+
+    filter:blur(3px);
+
+    animation:tracking 10s infinite;
+
+}
+
+@keyframes scanlines{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(4px);
+    }
+
+}
+
+@keyframes noise{
+
+    0%{transform:translate(0,0);}
+    25%{transform:translate(-2px,1px);}
+    50%{transform:translate(2px,-1px);}
+    75%{transform:translate(-1px,2px);}
+    100%{transform:translate(0,0);}
+
+}
+
+@keyframes tracking{
+
+    0%,100%{
+        opacity:0;
+        top:-80px;
+    }
+
+    4%{
+        opacity:.6;
+        top:20%;
+    }
+
+    6%{
+        opacity:0;
+    }
+
+    55%{
+        opacity:0;
+    }
+
+    58%{
+        opacity:.45;
+        top:72%;
+    }
+
+    60%{
+        opacity:0;
+    }
+
+}
