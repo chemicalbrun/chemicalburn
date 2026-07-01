@@ -1,1064 +1,235 @@
-/* ==========================================================
-   CHEMICALBURN V3
-   PART 1A
-========================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=VT323&family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap');
 
 :root{
 
---bg:#f3dce8;
---bg2:#f8edf3;
---page:#fff5f9;
+    --bg:#efd7e3;
+    --bg2:#f8edf3;
 
---window:#fffafd;
+    --window:#fffafc;
 
---title1:#efbfd8;
---title2:#e59dc2;
+    --title1:#efbfd8;
+    --title2:#e09abd;
 
---border:#b96b91;
---border-light:#ffe5f1;
+    --border:#b26c8f;
+    --borderLight:#ffe5f1;
 
---text:#4e3441;
+    --text:#4d3541;
 
---shadow:rgba(0,0,0,.10);
+    --shadow:rgba(0,0,0,.08);
 
 }
 
 *{
 
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 
 }
 
 html{
 
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 
 }
 
 body{
 
-font-family:Tahoma,Verdana,sans-serif;
+    font-family:Tahoma,Verdana,sans-serif;
 
-background:
-linear-gradient(
-180deg,
-#ebd2df,
-#f7eef3
-);
+    color:var(--text);
 
-color:var(--text);
+    background:
+    linear-gradient(
+    180deg,
+    #e8d1dc,
+    #f7eef3);
 
-padding:40px 0 80px;
+    min-height:100vh;
 
-overflow-x:hidden;
+    overflow-x:hidden;
 
-position:relative;
+    position:relative;
+
+    filter:
+    brightness(.94)
+    saturate(.92)
+    contrast(1.02);
 
 }
 
-/* -----------------------------
-   SIDE ART BORDERS
------------------------------ */
+/* --------------------------
+   SIDE BORDERS
+--------------------------- */
 
 body::before,
 body::after{
 
-content:"";
+    content:"";
 
-position:fixed;
+    position:fixed;
 
-top:0;
+    top:0;
 
-width:150px;
+    width:150px;
 
-height:100vh;
+    height:100vh;
 
-pointer-events:none;
+    pointer-events:none;
 
-opacity:.45;
+    background:
 
-background:
+    linear-gradient(
+    rgba(255,255,255,.18),
+    rgba(255,255,255,0)
+    ),
 
-linear-gradient(
-180deg,
-rgba(255,255,255,.12),
-rgba(255,255,255,0)
-),
+    repeating-linear-gradient(
 
-repeating-linear-gradient(
+    180deg,
 
-180deg,
+    #f3d9e8 0px,
 
-#efcade 0px,
+    #f3d9e8 60px,
 
-#efcade 48px,
+    #faeff5 60px,
 
-#f8edf3 48px,
+    #faeff5 120px
 
-#f8edf3 96px
+    );
 
-);
+    opacity:.55;
 
-z-index:-3;
+    z-index:-5;
 
 }
 
 body::before{
 
-left:0;
+    left:0;
 
-border-right:2px solid #d7a5c2;
+    border-right:2px solid #d7abc3;
 
 }
 
 body::after{
 
-right:0;
+    right:0;
 
-border-left:2px solid #d7a5c2;
+    border-left:2px solid #d7abc3;
 
 }
 
-/* -----------------------------
+/* --------------------------
    PAGE
------------------------------ */
+--------------------------- */
 
 .page{
 
-width:min(1120px,90vw);
+    width:min(1120px,90vw);
 
-margin:auto;
+    margin:auto;
 
-position:relative;
+    padding:36px 0 80px;
 
 }
 
-/* -----------------------------
+/* --------------------------
    HEADER
------------------------------ */
+--------------------------- */
 
 .site-header{
 
-background:var(--page);
+    margin-bottom:22px;
 
-border:2px solid var(--border);
+    padding:14px;
 
-padding:14px;
+    background:var(--window);
 
-margin-bottom:22px;
+    border:2px solid var(--border);
 
-text-align:center;
+    box-shadow:
+    2px 2px 0 var(--shadow);
 
-box-shadow:
-
-2px 2px 0 rgba(0,0,0,.08);
+    text-align:center;
 
 }
 
 .site-header h1{
 
-font-family:"Silkscreen",cursive;
+    font-family:"Silkscreen";
 
-font-size:26px;
+    font-size:24px;
 
-font-weight:400;
+    font-weight:400;
 
-margin-bottom:6px;
+    margin-bottom:6px;
 
 }
 
 .site-header p{
 
-font-size:14px;
-
-letter-spacing:.5px;
+    font-size:14px;
 
 }
 
-/* -----------------------------
-   LAYOUT
------------------------------ */
+/* --------------------------
+   GRID
+--------------------------- */
 
 .container{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:290px 1fr;
+    grid-template-columns:290px 1fr;
 
-gap:24px;
-
-align-items:start;
+    gap:24px;
 
 }
 
 .sidebar{
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-gap:24px;
+    gap:24px;
 
 }
 
 .content{
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-gap:24px;
+    gap:24px;
 
 }
 
 .grid{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
-gap:24px;
+    gap:24px;
 
 }
 
 .bottom-row{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:320px 1fr;
+    grid-template-columns:310px 1fr;
 
-gap:24px;
-
-}
-
-/* -----------------------------
-   VHS OVERLAY
------------------------------ */
-
-#vhs{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-z-index:999;
-
-opacity:.28;
-
-background:
-
-repeating-linear-gradient(
-
-180deg,
-
-transparent 0px,
-
-rgba(255,255,255,.05) 2px,
-
-transparent 4px
-
-);
-
-animation:
-
-vhsFlicker 9s infinite alternate;
+    gap:24px;
 
 }
 
-/* subtle screen darkening */
-
-#vhs::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-
-ellipse at center,
-
-transparent 55%,
-
-rgba(0,0,0,.20)
-
-);
-
-}
-
-/* tiny RGB shift */
-
-#vhs::after{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-rgba(255,0,60,.02),
-
-transparent,
-
-rgba(0,180,255,.02)
-
-);
-
-mix-blend-mode:screen;
-
-}
-
-/* -----------------------------
-   VHS ANIMATION
------------------------------ */
-
-@keyframes vhsFlicker{
-
-0%{
-
-opacity:.22;
-
-transform:translateY(0);
-
-}
-
-35%{
-
-opacity:.30;
-
-}
-
-51%{
-
-transform:translateY(1px);
-
-}
-
-74%{
-
-opacity:.25;
-
-}
-
-100%{
-
-opacity:.28;
-
-transform:translateY(0);
-
-}
-
-}
-
-/* ==========================================================
-   CHEMICALBURN V3
-   PART 1B
-   WINDOWS
-========================================================== */
-
-.window{
-
-background:var(--window);
-
-border:2px solid var(--border);
-
-border-radius:4px;
-
-overflow:hidden;
-
-box-shadow:
-2px 2px 0 rgba(0,0,0,.08);
-
-transition:.15s ease;
-
-position:relative;
-
-}
-
-.window:hover{
-
-transform:translateY(-2px);
-
-}
-
-/* XP style highlight */
-
-.window::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:0;
-right:0;
-
-height:1px;
-
-background:rgba(255,255,255,.7);
-
-pointer-events:none;
-
-}
-
-/* -----------------------------
-   TITLE BAR
------------------------------ */
-
-.titlebar{
-
-height:28px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-padding:0 8px;
-
-background:linear-gradient(
-
-180deg,
-
-var(--title1),
-
-var(--title2)
-
-);
-
-border-bottom:2px solid var(--border);
-
-}
-
-.window-title{
-
-display:flex;
-
-align-items:center;
-
-gap:6px;
-
-font-family:"Silkscreen",sans-serif;
-
-font-size:11px;
-
-color:#5d3045;
-
-}
-
-.window-title img{
-
-width:16px;
-
-height:16px;
-
-image-rendering:pixelated;
-
-flex-shrink:0;
-
-}
-
-/* -----------------------------
-   WINDOW BUTTONS
------------------------------ */
-
-.window-buttons{
-
-display:flex;
-
-gap:3px;
-
-}
-
-.window-buttons div{
-
-width:15px;
-
-height:15px;
-
-background:#ffeaf4;
-
-border:1px solid #b56b91;
-
-position:relative;
-
-box-shadow:
-inset 1px 1px rgba(255,255,255,.8);
-
-}
-
-.window-buttons div:nth-child(1)::after{
-
-content:"";
-
-position:absolute;
-
-left:3px;
-right:3px;
-bottom:3px;
-
-height:1px;
-
-background:#7a4b63;
-
-}
-
-.window-buttons div:nth-child(2)::after{
-
-content:"";
-
-position:absolute;
-
-top:3px;
-left:3px;
-
-width:7px;
-height:6px;
-
-border:1px solid #7a4b63;
-
-}
-
-.window-buttons div:nth-child(3)::before,
-.window-buttons div:nth-child(3)::after{
-
-content:"";
-
-position:absolute;
-
-left:3px;
-top:6px;
-
-width:8px;
-height:1px;
-
-background:#7a4b63;
-
-}
-
-.window-buttons div:nth-child(3)::before{
-
-transform:rotate(45deg);
-
-}
-
-.window-buttons div:nth-child(3)::after{
-
-transform:rotate(-45deg);
-
-}
-
-/* -----------------------------
-   CONTENT
------------------------------ */
-
-.window-content{
-
-padding:16px;
-
-background:#fffafc;
-
-font-size:14px;
-
-line-height:1.6;
-
-}
-
-/* -----------------------------
-   PROFILE
------------------------------ */
-
-.profile{
-
-text-align:center;
-
-}
-
-.avatar{
-
-display:block;
-
-margin:auto;
-
-width:150px;
-
-background:white;
-
-padding:4px;
-
-border:2px solid var(--border);
-
-margin-bottom:14px;
-
-image-rendering:pixelated;
-
-}
-
-.profile h2{
-
-font-family:"Silkscreen",sans-serif;
-
-font-size:13px;
-
-margin-bottom:10px;
-
-font-weight:400;
-
-}
-
-.profile p{
-
-font-size:14px;
-
-}
-
-/* -----------------------------
-   LISTS
------------------------------ */
-
-ul{
-
-list-style:none;
-
-}
-
-li{
-
-padding:6px 0;
-
-border-bottom:1px dashed #efc4da;
-
-}
-
-li:last-child{
-
-border-bottom:none;
-
-}
-
-/* -----------------------------
-   LINKS
------------------------------ */
-
-a{
-
-color:#b44d81;
-
-text-decoration:none;
-
-}
-
-a:hover{
-
-text-decoration:underline;
-
-}
-
-/* -----------------------------
-   BUTTONS
------------------------------ */
-
-button{
-
-font-family:Tahoma,sans-serif;
-
-font-size:13px;
-
-padding:6px 12px;
-
-background:#ffe9f3;
-
-border:2px solid var(--border);
-
-cursor:pointer;
-
-transition:.15s;
-
-}
-
-button:hover{
-
-background:#ffd7e8;
-
-transform:translateY(-1px);
-
-}
-
-/* ==========================================================
-   CHEMICALBURN V3
-   PART 1C
-   CONTENT + TV + TASKBAR
-========================================================== */
-
-/* -----------------------------
-   WELCOME
------------------------------ */
-
-.hero .window-content{
-
-padding:20px;
-
-}
-
-.hero h2{
-
-font-family:"Silkscreen",sans-serif;
-
-font-size:15px;
-
-font-weight:400;
-
-margin-bottom:12px;
-
-}
-
-.hero p{
-
-margin-bottom:10px;
-
-}
-
-/* -----------------------------
-   DIARY
------------------------------ */
-
-.diary-entry{
-
-background:#fff5f9;
-
-border:2px solid #e8bfd4;
-
-padding:10px;
-
-margin-bottom:12px;
-
-}
-
-.diary-entry:last-child{
-
-margin-bottom:0;
-
-}
-
-.diary-entry b{
-
-color:#b04e7d;
-
-}
-
-/* -----------------------------
-   GALLERY
------------------------------ */
-
-.gallery-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:10px;
-
-}
-
-.gallery-grid img{
-
-width:100%;
-
-aspect-ratio:1;
-
-background:#f8dce9;
-
-border:2px solid var(--border);
-
-padding:3px;
-
-object-fit:cover;
-
-image-rendering:pixelated;
-
-transition:.15s;
-
-}
-
-.gallery-grid img:hover{
-
-transform:scale(1.03);
-
-}
-
-/* -----------------------------
-   GUESTBOOK
------------------------------ */
-
-.guest-entry{
-
-background:#fff7fb;
-
-border:2px solid #efc7dc;
-
-padding:10px;
-
-margin-bottom:10px;
-
-}
-
-.guest-name{
-
-font-family:"Silkscreen",sans-serif;
-
-font-size:11px;
-
-margin-bottom:6px;
-
-color:#b04e7d;
-
-}
-
-/* -----------------------------
-   MUSIC
------------------------------ */
-
-.record{
-
-display:block;
-
-width:130px;
-
-margin:10px auto;
-
-animation:spin 6s linear infinite;
-
-filter:drop-shadow(2px 2px 2px rgba(0,0,0,.15));
-
-cursor:pointer;
-
-}
-
-.record:hover{
-
-animation-play-state:paused;
-
-transform:scale(1.04);
-
-}
-
-@keyframes spin{
-
-from{
-
-transform:rotate(0deg);
-
-}
-
-to{
-
-transform:rotate(360deg);
-
-}
-
-}
-
-/* -----------------------------
-   ARCADE
------------------------------ */
-
-.arcade-list{
-
-display:grid;
-
-gap:8px;
-
-}
-
-/* -----------------------------
-   CRT TV
------------------------------ */
-
-.tv-screen{
-
-width:100%;
-
-aspect-ratio:4/3;
-
-background:#111;
-
-border:8px solid #545454;
-
-border-radius:18px;
-
-position:relative;
-
-overflow:hidden;
-
-box-shadow:
-
-inset 0 0 25px rgba(255,255,255,.05);
-
-}
-
-/* curved glass */
-
-.tv-screen::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background:
-
-radial-gradient(
-
-ellipse at center,
-
-transparent 55%,
-
-rgba(0,0,0,.25)
-
-);
-
-pointer-events:none;
-
-}
-
-/* scanlines */
-
-.tv-screen::after{
-
-content:"PLAY 00:00 SP";
-
-position:absolute;
-
-left:12px;
-
-bottom:10px;
-
-font-family:"VT323",monospace;
-
-font-size:18px;
-
-letter-spacing:1px;
-
-color:white;
-
-opacity:.75;
-
-}
-
-/* -----------------------------
-   FOOTER
------------------------------ */
-
-footer{
-
-position:fixed;
-
-left:0;
-
-right:0;
-
-bottom:0;
-
-height:38px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-padding:0 14px;
-
-background:linear-gradient(
-
-var(--title1),
-
-var(--title2)
-
-);
-
-border-top:2px solid var(--border);
-
-z-index:100;
-
-}
-
-.start-button{
-
-font-family:"Silkscreen",sans-serif;
-
-font-size:10px;
-
-padding:6px 12px;
-
-}
-
-/* -----------------------------
-   BOOT SCREEN
------------------------------ */
-
-#boot-screen{
-
-position:fixed;
-
-inset:0;
-
-background:black;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-color:white;
-
-z-index:99999;
-
-font-family:"Silkscreen",sans-serif;
-
-transition:opacity .8s;
-
-}
-
-.cursor{
-
-animation:blink .8s infinite;
-
-}
-
-@keyframes blink{
-
-50%{
-
-opacity:0;
-
-}
-
-}
-
-/* -----------------------------
+/* --------------------------
    RESPONSIVE
------------------------------ */
+--------------------------- */
 
 @media(max-width:900px){
 
@@ -1071,22 +242,12 @@ display:none;
 
 .page{
 
-width:95%;
+width:96%;
 
 }
 
-.container{
-
-grid-template-columns:1fr;
-
-}
-
-.grid{
-
-grid-template-columns:1fr;
-
-}
-
+.container,
+.grid,
 .bottom-row{
 
 grid-template-columns:1fr;
@@ -1094,225 +255,1541 @@ grid-template-columns:1fr;
 }
 
 }
+/* ==========================================================
+   CHEMICALBURN V4
+   windows.css
+========================================================== */
 
-/* ===========================
+/* -----------------------------
+   WINDOW
+----------------------------- */
+
+.window{
+
+    background:var(--window);
+
+    border:2px solid var(--border);
+
+    border-radius:4px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    box-shadow:
+        2px 2px 0 var(--shadow);
+
+}
+
+/* subtle top highlight */
+
+.window::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:1px;
+
+    background:rgba(255,255,255,.7);
+
+    pointer-events:none;
+
+}
+
+/* -----------------------------
+   TITLE BAR
+----------------------------- */
+
+.titlebar{
+
+    height:28px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 8px;
+
+    background:
+        linear-gradient(
+            var(--title1),
+            var(--title2)
+        );
+
+    border-bottom:2px solid var(--border);
+
+}
+
+.window-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-family:"Silkscreen";
+
+    font-size:11px;
+
+    color:#5b3043;
+
+}
+
+.window-title img{
+
+    width:16px;
+
+    height:16px;
+
+    image-rendering:pixelated;
+
+}
+
+/* -----------------------------
+   XP BUTTONS
+----------------------------- */
+
+.window-buttons{
+
+    display:flex;
+
+    gap:3px;
+
+}
+
+.window-buttons div{
+
+    width:15px;
+
+    height:15px;
+
+    background:#ffe9f4;
+
+    border:1px solid #b56d90;
+
+    box-shadow:
+        inset 1px 1px rgba(255,255,255,.75);
+
+    position:relative;
+
+}
+
+/* minimize */
+
+.window-buttons div:nth-child(1)::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:3px;
+    right:3px;
+
+    bottom:3px;
+
+    height:1px;
+
+    background:#70475d;
+
+}
+
+/* maximize */
+
+.window-buttons div:nth-child(2)::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:3px;
+    top:3px;
+
+    width:7px;
+
+    height:6px;
+
+    border:1px solid #70475d;
+
+}
+
+/* close */
+
+.window-buttons div:nth-child(3)::before,
+.window-buttons div:nth-child(3)::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:8px;
+
+    height:1px;
+
+    background:#70475d;
+
+    top:6px;
+    left:3px;
+
+}
+
+.window-buttons div:nth-child(3)::before{
+
+    transform:rotate(45deg);
+
+}
+
+.window-buttons div:nth-child(3)::after{
+
+    transform:rotate(-45deg);
+
+}
+
+/* -----------------------------
+   CONTENT
+----------------------------- */
+
+.window-content{
+
+    padding:16px;
+
+    background:#fffbfd;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+/* -----------------------------
+   PROFILE
+----------------------------- */
+
+.profile{
+
+    text-align:center;
+
+}
+
+.avatar{
+
+    width:150px;
+
+    display:block;
+
+    margin:0 auto 14px;
+
+    border:2px solid var(--border);
+
+    padding:4px;
+
+    background:white;
+
+    image-rendering:pixelated;
+
+}
+
+.profile h2{
+
+    font-family:"Silkscreen";
+
+    font-size:13px;
+
+    font-weight:400;
+
+    margin-bottom:10px;
+
+}
+
+/* -----------------------------
+   LISTS
+----------------------------- */
+
+ul{
+
+    list-style:none;
+
+}
+
+li{
+
+    padding:7px 0;
+
+    border-bottom:1px dashed #ecc3d8;
+
+}
+
+li:last-child{
+
+    border-bottom:none;
+
+}
+
+/* -----------------------------
+   LINKS
+----------------------------- */
+
+a{
+
+    color:#b24d7f;
+
+    text-decoration:none;
+
+}
+
+a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* -----------------------------
+   BUTTON
+----------------------------- */
+
+button{
+
+    font-family:Tahoma,sans-serif;
+
+    font-size:13px;
+
+    background:#ffe8f2;
+
+    border:2px solid var(--border);
+
+    padding:6px 12px;
+
+    cursor:pointer;
+
+    transition:.15s;
+
+}
+
+button:hover{
+
+    background:#ffd7e7;
+
+}
+
+/* -----------------------------
+   WINDOW HOVER
+----------------------------- */
+
+.window{
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+
+}
+
+.window:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        4px 4px 0 rgba(0,0,0,.09);
+
+}
+
+/* ==========================================================
+   PART 3/6
+   CONTENT WINDOWS
+========================================================== */
+
+/* --------------------------
+   HERO
+--------------------------- */
+
+.hero .window-content{
+
+    padding:20px;
+
+}
+
+.hero h2{
+
+    font-family:"Silkscreen",sans-serif;
+
+    font-size:15px;
+
+    font-weight:400;
+
+    margin-bottom:12px;
+
+}
+
+.hero p{
+
+    line-height:1.7;
+
+}
+
+/* --------------------------
+   DIARY
+--------------------------- */
+
+.diary-entry{
+
+    background:#fff6fa;
+
+    border:2px solid #ecc3d8;
+
+    padding:10px;
+
+    margin-bottom:12px;
+
+}
+
+.diary-entry:last-child{
+
+    margin-bottom:0;
+
+}
+
+.diary-entry b{
+
+    color:#b0507f;
+
+}
+
+/* --------------------------
+   GALLERY
+--------------------------- */
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+}
+
+.gallery-grid img{
+
+    width:100%;
+
+    aspect-ratio:1;
+
+    object-fit:cover;
+
+    image-rendering:pixelated;
+
+    background:#f7dbe8;
+
+    border:2px solid var(--border);
+
+    padding:3px;
+
+    transition:.15s;
+
+}
+
+.gallery-grid img:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* --------------------------
+   GUESTBOOK
+--------------------------- */
+
+.guest-entry{
+
+    background:#fff8fb;
+
+    border:2px solid #efcade;
+
+    padding:10px;
+
+    margin-bottom:10px;
+
+}
+
+.guest-name{
+
+    font-family:"Silkscreen";
+
+    font-size:11px;
+
+    color:#b0507f;
+
+    margin-bottom:6px;
+
+}
+
+/* --------------------------
+   MUSIC
+--------------------------- */
+
+.record{
+
+    width:135px;
+
+    display:block;
+
+    margin:10px auto;
+
+    animation:recordSpin 8s linear infinite;
+
+    image-rendering:auto;
+
+}
+
+.record:hover{
+
+    animation-play-state:paused;
+
+    transform:scale(1.03);
+
+}
+
+.now-playing{
+
+    margin-top:10px;
+
+    text-align:center;
+
+    font-size:13px;
+
+}
+
+/* --------------------------
+   ARCADE
+--------------------------- */
+
+.arcade-list{
+
+    display:grid;
+
+    gap:8px;
+
+}
+
+.arcade-list button{
+
+    width:100%;
+
+}
+
+/* --------------------------
+   CRT TV
+--------------------------- */
+
+.tv-screen{
+
+    width:100%;
+
+    aspect-ratio:4/3;
+
+    background:#111;
+
+    border:8px solid #4f4f4f;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    box-shadow:
+
+    inset 0 0 20px rgba(255,255,255,.05);
+
+}
+
+/* curved glass */
+
+.tv-screen::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+
+    ellipse at center,
+
+    transparent 55%,
+
+    rgba(0,0,0,.22)
+
+    );
+
+}
+
+/* VHS timestamp */
+
+.tv-screen::after{
+
+    content:"PLAY 00:00 SP";
+
+    position:absolute;
+
+    left:12px;
+
+    bottom:10px;
+
+    font-family:"VT323";
+
+    font-size:18px;
+
+    color:white;
+
+    opacity:.75;
+
+}
+
+/* --------------------------
+   TASKBAR
+--------------------------- */
+
+footer{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+    height:38px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 14px;
+
+    background:
+
+    linear-gradient(
+
+    var(--title1),
+
+    var(--title2)
+
+    );
+
+    border-top:2px solid var(--border);
+
+    z-index:50;
+
+}
+
+.start-button{
+
+    font-family:"Silkscreen";
+
+    font-size:10px;
+
+}
+
+/* --------------------------
+   ANIMATIONS
+--------------------------- */
+
+@keyframes recordSpin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ==========================================================
+   PART 4/6
+   VHS + CRT EFFECTS
+========================================================== */
+
+/* Main Overlay */
+
+#vhs{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    overflow:hidden;
+
+}
+
+/* Moving Scanlines */
+
+#vhs::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    repeating-linear-gradient(
+
+        180deg,
+
+        rgba(255,255,255,.03) 0px,
+
+        rgba(255,255,255,.03) 1px,
+
+        transparent 2px,
+
+        transparent 4px
+
+    );
+
+    opacity:.55;
+
+    animation:scanlinesMove 8s linear infinite;
+
+}
+
+/* CRT Glow + Vignette */
+
+#vhs::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+
+            ellipse at center,
+
+            transparent 58%,
+
+            rgba(0,0,0,.18) 100%
+
+        );
+
+}
+
+/* Film Grain */
+
+.crt-noise{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.05;
+
+    background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+
+    animation:noiseMove .3s steps(3) infinite;
+
+    z-index:9998;
+
+}
+
+/* Horizontal Tape Glitch */
+
+.vhs-glitch{
+
+    position:fixed;
+
+    left:-10%;
+
+    width:120%;
+
+    height:45px;
+
+    pointer-events:none;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            rgba(255,255,255,.12),
+
+            transparent
+
+        );
+
+    opacity:0;
+
+    animation:tapeGlitch 12s infinite;
+
+    filter:blur(1px);
+
+    z-index:9999;
+
+}
+
+/* Slight RGB Split */
+
+.page{
+
+    position:relative;
+
+}
+
+.page::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    mix-blend-mode:screen;
+
+    opacity:.03;
+
+    transform:translateX(1px);
+
+    background:rgba(255,0,120,.25);
+
+}
+
+.page::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    mix-blend-mode:screen;
+
+    opacity:.03;
+
+    transform:translateX(-1px);
+
+    background:rgba(0,180,255,.25);
+
+}
+
+/* Tiny Brightness Flicker */
+
+body{
+
+    animation:crtFlicker 9s infinite;
+
+}
+
+/* TV Screen */
+
+.tv-screen{
+
+    animation:screenGlow 6s ease-in-out infinite;
+
+}
+
+/* ----------------------------------
+   ANIMATIONS
+---------------------------------- */
+
+@keyframes scanlinesMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(4px);
+
+    }
+
+}
+
+@keyframes noiseMove{
+
+    0%{transform:translate(0,0);}
+    25%{transform:translate(-2px,1px);}
+    50%{transform:translate(2px,-2px);}
+    75%{transform:translate(-1px,2px);}
+    100%{transform:translate(0,0);}
+
+}
+
+@keyframes crtFlicker{
+
+    0%,100%{
+
+        filter:
+        brightness(.94)
+        contrast(1.02)
+        saturate(.92);
+
+    }
+
+    49%{
+
+        filter:
+        brightness(.95)
+        contrast(1.02);
+
+    }
+
+    50%{
+
+        filter:
+        brightness(.91)
+        contrast(1.03);
+
+    }
+
+    51%{
+
+        filter:
+        brightness(.95);
+
+    }
+
+}
+
+@keyframes tapeGlitch{
+
+    0%,100%{
+
+        opacity:0;
+        top:-60px;
+
+    }
+
+    3%{
+
+        opacity:.45;
+        top:20%;
+
+    }
+
+    4%{
+
+        opacity:0;
+
+    }
+
+    56%{
+
+        opacity:.35;
+        top:68%;
+
+    }
+
+    57%{
+
+        opacity:0;
+
+    }
+
+}
+
+@keyframes screenGlow{
+
+    0%,100%{
+
+        box-shadow:
+
+        inset 0 0 25px rgba(255,255,255,.04);
+
+    }
+
+    50%{
+
+        box-shadow:
+
+        inset 0 0 40px rgba(120,180,255,.08);
+
+    }
+
+}
+
+/* ==========================================================
+   PART 5/6
    PS2 INTRO
-=========================== */
+========================================================== */
 
 #intro{
 
-position:fixed;
+    position:fixed;
+    inset:0;
 
-inset:0;
+    background:#050608;
 
-background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-display:flex;
+    overflow:hidden;
 
-justify-content:center;
+    z-index:999999;
 
-align-items:center;
-
-overflow:hidden;
-
-z-index:999999;
+    transition:
+    opacity 1s ease,
+    visibility 1s;
 
 }
 
-/* blue glow */
+/* ---------------------------------
+   BLUE GLOW
+---------------------------------- */
 
 #intro::before{
 
-content:"";
+    content:"";
 
-position:absolute;
+    position:absolute;
 
-width:700px;
+    width:900px;
+    height:900px;
 
-height:700px;
+    border-radius:50%;
 
-background:radial-gradient(
+    background:
 
-circle,
+    radial-gradient(
 
-rgba(120,170,255,.18),
+        circle,
 
-transparent 70%
+        rgba(80,130,255,.18),
 
-);
+        rgba(110,90,255,.08),
 
-filter:blur(60px);
+        transparent 70%
 
-animation:pulse 6s ease-in-out infinite;
+    );
+
+    filter:blur(70px);
+
+    animation:introGlow 8s ease-in-out infinite;
 
 }
 
-/* content */
+/* ---------------------------------
+   VIGNETTE
+---------------------------------- */
+
+#intro::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(
+
+        ellipse,
+
+        transparent 45%,
+
+        rgba(0,0,0,.45)
+
+    );
+
+}
+
+/* ---------------------------------
+   CONTENT
+---------------------------------- */
 
 .intro-content{
 
-position:relative;
+    position:relative;
 
-text-align:center;
+    z-index:5;
 
-z-index:5;
+    text-align:center;
 
 }
 
 .intro-content h1{
 
-font-family:"Silkscreen",sans-serif;
+    font-family:"Silkscreen";
 
-font-size:42px;
+    font-size:42px;
 
-font-weight:400;
+    font-weight:400;
 
-color:white;
+    color:white;
 
-letter-spacing:2px;
+    letter-spacing:4px;
 
-margin-bottom:16px;
+    margin-bottom:18px;
 
-text-shadow:
+    text-shadow:
 
-0 0 18px rgba(120,170,255,.7);
+        0 0 20px rgba(120,170,255,.7),
+
+        0 0 40px rgba(120,170,255,.25);
 
 }
 
 .intro-content p{
 
-color:#9ebcff;
+    color:#9ebdff;
 
-letter-spacing:3px;
+    font-size:13px;
 
-font-size:14px;
+    letter-spacing:4px;
 
-margin-bottom:10px;
+    text-transform:uppercase;
 
-text-transform:uppercase;
+    margin-bottom:8px;
 
 }
 
 .intro-content span{
 
-display:block;
+    display:block;
 
-color:#b7cbff;
+    color:#b6cbff;
 
-font-size:13px;
+    margin-bottom:42px;
 
-margin-bottom:40px;
+    font-size:13px;
 
 }
 
-/* button */
+/* ---------------------------------
+   BUTTON
+---------------------------------- */
 
 #enter-site{
 
-background:none;
+    background:none;
 
-border:none;
+    border:none;
 
-color:white;
+    color:white;
 
-font-family:"Silkscreen";
+    font-family:"Silkscreen";
 
-font-size:12px;
+    font-size:12px;
 
-cursor:pointer;
+    letter-spacing:2px;
 
-animation:blink 1.4s infinite;
+    cursor:pointer;
+
+    animation:pressBlink 1.5s infinite;
 
 }
 
-/* particles */
+/* ---------------------------------
+   FLOATING PARTICLES
+---------------------------------- */
 
 .intro-particles{
 
-position:absolute;
+    position:absolute;
 
-inset:0;
+    inset:0;
 
-background-image:
-
-radial-gradient(white 1px,transparent 1px);
-
-background-size:120px 120px;
-
-opacity:.18;
-
-animation:float 30s linear infinite;
+    overflow:hidden;
 
 }
 
-/* scanlines */
+.intro-particles span{
+
+    position:absolute;
+
+    width:2px;
+    height:140px;
+
+    border-radius:999px;
+
+    background:
+
+    linear-gradient(
+
+        transparent,
+
+        rgba(130,170,255,.7),
+
+        transparent
+
+    );
+
+    animation:particleFloat linear infinite;
+
+    opacity:.25;
+
+}
+
+/* ---------------------------------
+   NOISE
+---------------------------------- */
 
 .intro-noise{
 
-position:absolute;
+    position:absolute;
 
-inset:0;
+    inset:0;
 
-background:
+    background:
 
-repeating-linear-gradient(
+    repeating-linear-gradient(
 
-180deg,
+        180deg,
 
-transparent,
+        transparent,
 
-transparent 2px,
+        transparent 2px,
 
-rgba(255,255,255,.04) 3px
+        rgba(255,255,255,.03) 3px
 
-);
+    );
 
-opacity:.35;
+    opacity:.45;
 
-pointer-events:none;
-
-}
-
-/* animations */
-
-@keyframes float{
-
-from{
-
-transform:translateY(40px);
+    animation:introNoise .18s infinite;
 
 }
 
-to{
+/* ---------------------------------
+   POWER ON FLASH
+---------------------------------- */
 
-transform:translateY(-40px);
+.intro-flash{
 
-}
+    position:absolute;
 
-}
+    inset:0;
 
-@keyframes pulse{
+    background:white;
 
-0%,100%{
+    opacity:0;
 
-transform:scale(1);
-
-}
-
-50%{
-
-transform:scale(1.08);
+    pointer-events:none;
 
 }
 
+/* ---------------------------------
+   ANIMATIONS
+---------------------------------- */
+
+@keyframes introGlow{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
 }
 
-@keyframes blink{
+@keyframes pressBlink{
 
-50%{
+    50%{
 
-opacity:.35;
+        opacity:.35;
+
+    }
 
 }
 
+@keyframes particleFloat{
+
+    from{
+
+        transform:translateY(110vh);
+
+    }
+
+    to{
+
+        transform:translateY(-120vh);
+
+    }
+
 }
+
+@keyframes introNoise{
+
+    0%{transform:translateY(0);}
+    50%{transform:translateY(1px);}
+    100%{transform:translateY(0);}
+
+}
+
+/* ==========================================================
+   PART 6/6
+   FINAL POLISH
+========================================================== */
+
+/* --------------------------
+   DESKTOP BOOT
+--------------------------- */
+
+#desktop{
+
+    opacity:0;
+
+    filter:blur(8px);
+
+    transform:scale(.985);
+
+    transition:
+
+        opacity .9s ease,
+        filter .9s ease,
+        transform .9s ease;
+
+}
+
+#desktop.loaded{
+
+    opacity:1;
+
+    filter:blur(0);
+
+    transform:scale(1);
+
+}
+
+/* --------------------------
+   WINDOW BOOT
+--------------------------- */
+
+.window{
+
+    animation:windowBoot .55s ease backwards;
+
+}
+
+.window:nth-child(2){
+
+    animation-delay:.08s;
+
+}
+
+.window:nth-child(3){
+
+    animation-delay:.16s;
+
+}
+
+.window:nth-child(4){
+
+    animation-delay:.24s;
+
+}
+
+.window:nth-child(5){
+
+    animation-delay:.32s;
+
+}
+
+.window:nth-child(6){
+
+    animation-delay:.40s;
+
+}
+
+.window:nth-child(7){
+
+    animation-delay:.48s;
+
+}
+
+.window:nth-child(8){
+
+    animation-delay:.56s;
+
+}
+
+/* --------------------------
+   HOVER
+--------------------------- */
+
+.window{
+
+    transition:
+
+        transform .18s,
+
+        box-shadow .18s,
+
+        border-color .18s;
+
+}
+
+.window:hover{
+
+    transform:translateY(-2px);
+
+    border-color:#cb7ea6;
+
+    box-shadow:
+
+        5px 5px 0 rgba(0,0,0,.10);
+
+}
+
+/* --------------------------
+   LINKS
+--------------------------- */
+
+a{
+
+    transition:.15s;
+
+}
+
+a:hover{
+
+    color:#cf5d98;
+
+}
+
+/* --------------------------
+   BUTTONS
+--------------------------- */
+
+button{
+
+    transition:
+
+        background .15s,
+
+        transform .15s,
+
+        box-shadow .15s;
+
+}
+
+button:hover{
+
+    transform:translateY(-1px);
+
+}
+
+button:active{
+
+    transform:translateY(1px);
+
+}
+
+/* --------------------------
+   SCROLLBAR
+--------------------------- */
+
+::-webkit-scrollbar{
+
+    width:11px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f7e6ef;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#d998bb;
+
+    border:2px solid #f7e6ef;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#c47ba4;
+
+}
+
+/* --------------------------
+   SELECTION
+--------------------------- */
+
+::selection{
+
+    background:#f3bfd8;
+
+    color:#4d2d3d;
+
+}
+
+/* --------------------------
+   FADE IN
+--------------------------- */
+
+@keyframes windowBoot{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(14px)
+
+        scale(.98);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0)
+
+        scale(1);
+
+    }
+
+}
+
