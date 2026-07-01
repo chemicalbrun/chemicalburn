@@ -1,125 +1,53 @@
-// chemicalburn v0.1
+// ========================================
+// CHEMICALBURN V3
+// script.js
+// ========================================
 
-const boot = document.getElementById("boot-screen");
+// ---------- INTRO ----------
+
+const intro = document.getElementById("intro");
+const enterButton = document.getElementById("enter-site");
 const desktop = document.getElementById("desktop");
-const dots = document.getElementById("boot-dots");
+
+desktop.style.opacity = "0";
+
+function enterDesktop() {
+
+    intro.style.opacity = "0";
+    intro.style.pointerEvents = "none";
+
+    desktop.style.transition = "opacity 1.2s ease";
+    desktop.style.opacity = "1";
+
+    setTimeout(() => {
+
+        intro.remove();
+
+    }, 1200);
+
+}
+
+enterButton.addEventListener("click", enterDesktop);
+
+// ---------- TASKBAR CLOCK ----------
+
 const clock = document.getElementById("clock");
-const windows = document.querySelectorAll(".window");
 
-let dotCount = 0;
-
-// Booting...
-setInterval(() => {
-    dotCount = (dotCount + 1) % 4;
-    dots.textContent = ".".repeat(dotCount);
-}, 400);
-
-// Clock
 function updateClock() {
+
     const now = new Date();
 
     let hours = now.getHours();
     let minutes = now.getMinutes();
 
-    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = String(hours).padStart(2, "0");
+    minutes = String(minutes).padStart(2, "0");
 
-    hours = hours % 12;
-    if (hours === 0) hours = 12;
+    clock.textContent = `${hours}:${minutes}`;
 
-    minutes = minutes.toString().padStart(2, "0");
-
-    clock.textContent = `${hours}:${minutes} ${ampm}`;
 }
 
 updateClock();
+
 setInterval(updateClock, 1000);
 
-// Boot animation
-window.addEventListener("load", () => {
-
-    setTimeout(() => {
-
-        boot.style.transition = "opacity .45s ease";
-        boot.style.opacity = "0";
-
-        setTimeout(() => {
-
-            boot.style.display = "none";
-            desktop.style.display = "block";
-
-            // Fade desktop in
-            desktop.animate([
-                {
-                    opacity:0
-                },
-                {
-                    opacity:1
-                }
-            ],{
-                duration:600,
-                fill:"forwards"
-            });
-
-            // Windows appear one by one
-            windows.forEach((windowBox,index)=>{
-
-                setTimeout(()=>{
-
-                    windowBox.animate([
-                        {
-                            opacity:0,
-                            transform:"translateY(20px)"
-                        },
-                        {
-                            opacity:1,
-                            transform:"translateY(0px)"
-                        }
-                    ],{
-
-                        duration:450,
-                        fill:"forwards",
-                        easing:"ease"
-
-                    });
-
-                },index*120);
-
-            });
-
-            // Taskbar slides up
-            document.querySelector("footer").animate([
-                {
-                    transform:"translateY(100%)"
-                },
-                {
-                    transform:"translateY(0)"
-                }
-            ],{
-
-                duration:450,
-                fill:"forwards"
-
-            });
-
-        },500);
-
-    },1800);
-
-});
-
-// Day / Night
-const hour = new Date().getHours();
-
-const room = document.getElementById("room");
-
-if(hour >= 19 || hour < 7){
-
-    room.style.background =
-    "linear-gradient(#43315d,#1c1b36)";
-
-}else{
-
-    room.style.background =
-    "linear-gradient(#ffd8eb,#fff8fc)";
-
-}
